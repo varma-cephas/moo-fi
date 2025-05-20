@@ -49,6 +49,9 @@ const rain_volume_control = document.getElementById("rain-volume-control")
 const classicalm_volume_control = document.getElementById("classicalm-volume-control")
 //vol-ctrl btns
 
+const quote_text = document.getElementById("quote-text");
+const quotes_endpoint = "https://quotes-api-self.vercel.app/quote";
+
 
 const bodyElement = document.body; // Reference to the body element for adding/removing classes
 const circleProgress = document.querySelector(".circle-progress"); // Reference to the SVG circle progress element
@@ -287,3 +290,20 @@ classicalm_volume_control.addEventListener("input", ()=>{
     classical_audio.volume = classicalm_volume_control.value
 })
 //vol ctrl
+
+const fetchData= async(url)=>{
+    try{
+        const req = await fetch(url);
+        const res = await req.json();
+        return res
+    }catch(err){
+        console.error("Err",err);
+        throw new Error("Error", err)
+    }
+}
+
+fetchData(quotes_endpoint)
+    .then(data=>{
+        quote_text.textContent=data.quote
+    })
+    .catch(err=>console.log(err))
