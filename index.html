@@ -17,13 +17,13 @@
     <script src="./src/js/todo.js"></script>
 </head>
 <body>
-    <div class="h-dvh bg-[url(/src/assets/background-ambience/pixel-workers-men.gif)] bg-cover bg-no-repeat ">
-    <div class="bg-[url(/src/assets/background-ambience/rain-anim.svg)] h-dvh bg-size-[150px] absolute w-full opacity-20"></div>
+    <div class="h-dvh bg-blue-200 md:bg-[url(/src/assets/background-ambience/pixel-workers-men.gif)] bg-cover bg-no-repeat ">
+    <div class="md:bg-[url(/src/assets/background-ambience/rain-anim.svg)] h-dvh bg-size-[150px] absolute w-full opacity-20"></div>
         <div class="pt-6 px-[2rem]">
             <nav class="bg-opacity-50 backdrop-filter backdrop-blur-lg p-3 rounded-3xl flex items-center justify-between w-[fit-content] gap-18 px-8 mx-auto">
                 <div class="">
                     <a href="#">
-                        <img src="./src/assets/one-day-profile.jpg" class="w-12 h-12 rounded-full" alt="">
+                        <img src="./src/assets/one-day-profile.jpg" class="w-full h-full md:w-12 md:h-12 rounded-full" alt="">
                     </a>
                 </div>
                 <div class="">
@@ -61,8 +61,8 @@
                             <!-- <image href="./caty.gif" x="30" y="25" height="50" alt=""> -->
                         </svg>
                     </div>
-                <div class="absolute top-18 left-0 right-0">
-                    <model-viewer class="w-[90%] mx-auto" src="./src/assets/models3d/oscar_trophy.glb" auto-rotate ></model-viewer>
+                <div class="md:absolute top-18 left-0 right-0">
+                    <model-viewer class="w-[90%] mx-auto hidden md:block" src="./src/assets/models3d/oscar_trophy.glb" auto-rotate ></model-viewer>
                     <div id="timer-value" class="text-xl font-bold px-10 py-1 text-white border mx-auto w-[fit-content] rounded-lg">00:00</div>
 
                     <form id="duration-settings-form" class=" w-full max-w-xs mx-auto">
@@ -103,7 +103,7 @@
                         </div>
                     </form>
                 </div>
-                <div id="add_todo_btn">
+                <div id="add_todo_btn" class="hidden md:block">
                     <div class="cursor-pointer text-center">
                         <i class="fa-solid fa-plus text-white"></i>
                         <span class="text-white">Add a Mission</span>
@@ -114,15 +114,15 @@
         </div>    
 
         <div>
-            <div class="w-[fit-content] mx-auto flex flex-col backdrop-filter backdrop-blur-lg items-center justify-between gap-2 py-4 px-3 mt-3 rounded-xl md:absolute top-0 bottom-0 right-0">
-                <div>
+            <div class="w-[fit-content] mx-auto flex flex-col backdrop-filter backdrop-blur-lg items-center justify-between gap-2 py-4 px-3 mt-3 rounded-xl absolute md:top-0 bottom-0 right-0 max-md:left-0">
+                <div class="hidden md:block">
                     <h5 class="text-white underline">Todo List</h5>
                     <!-- <div class="sound-button cursor-pointer bg-white font-semibold text-white rounded-lg px-5 py-1 text-lg text-center">2 Days</div> -->
                     <div id="todo_list" class="border border-white">
                         <!-- <ol id="todo_list_item" class="w-[fit-content] mx-auto"></ol> -->
                     </div>
                 </div>
-                <div class="flex flex-col gap-3 justify-items-end">
+                <div class="flex md:flex-col gap-3 justify-items-end">
                     <div class="relative">
                         <button id="lofi-btn" class="sound-button cursor-pointer bg-white px-5 font-semibold text-white rounded-lg py-1 text-lg">B</button>
                         <div class="lofi-playing-sound border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
@@ -154,7 +154,7 @@
                     <audio loop id="classical-audio" class="audio" volume="0.0" loop src="./src/assets/audio/mozart.opus"></audio>  
                 </div>
             </div>
-            <div class="">
+            <div class="hidden md:block">
                 <div class="absolute bottom-2 left-2"><button class="next-ambience p-2 cursor-pointer rounded-xl text-xl text-white font-bold">>></button></div>
             </div>
         </div>
