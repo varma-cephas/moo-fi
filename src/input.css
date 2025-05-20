@@ -41,6 +41,11 @@
     background: rgba(42, 74, 58, 1);
     border-color: rgba(42, 74, 58, 1);
 }
+
+.next-ambience{
+    background: #557C67;
+}
+
 .circle-progress {
     fill: none;
     stroke: #345C47; /* Default green */
