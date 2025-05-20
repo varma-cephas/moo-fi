@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+    --primary-color: "F245C0";
+}
+
+@custom-variant hover (&:hover);
+
+.circle-background {
+    fill: none;
+    stroke: rgb(198, 215, 206);
+    stroke-width: 7;
+}
+
+#timer-value{
+    background: rgba(42, 74, 58, 0.9);
+    border-color: rgba(42, 74, 58, 0.9);
+}
+
+.sound-button{
+    background: #557C67;
+}
+
+#lofi-volume-control{
+    accent-color: rgba(42, 74, 58, 1);
+}
+
+#asmr-volume-control{
+    accent-color: rgba(42, 74, 58, 1);
+}
+
+#rain-volume-control{
+    accent-color: rgba(42, 74, 58, 1);
+}
+
+#classicalm-volume-control{
+    accent-color: rgba(42, 74, 58, 1);
+}
+
+.timer-template{
+    background: rgba(42, 74, 58, 1);
+    border-color: rgba(42, 74, 58, 1);
+}
+.circle-progress {
+    fill: none;
+    stroke: #345C47; /* Default green */
+    stroke-width: 7;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    /* Circumference for radius 45 is approx 2 * PI * 45 = 282.74 */
+    /* Using 283 for stroke-dasharray as in original CSS */
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283; /* Initially full offset to hide the line */
+}
+
+/* Tailwind doesn't directly handle SVG stroke colors based on parent class easily,
+    so we use a simple CSS rule for rest mode */
+body.rest-session-active .circle-progress {
+        stroke: #fd525385; /* Muted color for rest mode progress */
+}
+
+    /* Add transition only when the timer is running */
+body.timer-running .circle-progress {
+    transition: stroke-dashoffset 1s linear;
+}
+
+/* Hide pause button and show start button when timer is paused */
+body.timer-paused #pause-button {
+        display: none;
+}
+
+body:not(.timer-paused) #start-button {
+        display: none;
+}
+
+.play-state{
+    display: block;
+    background: #12db70;
+}
+.pause-state{
+    display: block;
+    background: #2d3a33;
+}
+

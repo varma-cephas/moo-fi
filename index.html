@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foo-fi</title>
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="icon" href="./src/assets/fav-ico.png">
+     <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+     <!-- font awesome -->
+      <!-- Import the component -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <!-- Use it like any other HTML element -->
+    <script src="./src/js/main.js" defer></script>
+    <script src="./src/js/todo.js"></script>
+</head>
+<body>
+    <div class="h-dvh bg-[url(/src/assets/background-ambience/pixel-workers-men.gif)] bg-cover bg-no-repeat ">
+    <div class="bg-[url(/src/assets/background-ambience/rain-anim.svg)] h-dvh bg-size-[150px] absolute w-full opacity-20"></div>
+        <div class="pt-6 px-[2rem]">
+            <nav class="bg-opacity-50 backdrop-filter backdrop-blur-lg p-3 rounded-3xl flex items-center justify-between w-[fit-content] gap-18 px-8 mx-auto">
+                <div class="">
+                    <a href="#">
+                        <img src="./src/assets/one-day-profile.jpg" class="w-12 h-12 rounded-full" alt="">
+                    </a>
+                </div>
+                <div class="">
+                    <ul class="hidden md:flex items-center gap-7">
+                        <li>
+                            <a href="#" class="hover:text-(--primary-color) font-semibold transition text-white text-xl">HOME</a>
+                        </li>
+                        <li>
+                            <a href="#" class="font-semibold hover:text-(--primary-color) text-white text-xl">NOTES</a>
+                        </li>
+                        <li>
+                            <a href="#" class="font-semibold hover:text-(--primary-color) text-white text-xl">ART</a>
+                        </li>
+                        <li>
+                            <a href="#" class="font-semibold hover:text-(--primary-color) text-white text-xl">SAY HI!</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="#" class="text-2xl pr-6 hover:text-(--primary-color) text-white text-2xl">
+                        <i class="fa-brands fa-github-alt"></i>
+                    </a>
+                   <a href="#" class="text-2xl hover:text-(--primary-color) text-white text-2xl">
+                        <i class="fa-brands fa-linkedin"></i>
+                   </a>
+                </div>
+            </nav>
+        </div>
+        <div class="mt-10">
+                <div class="backdrop-filter backdrop-blur-lg w-[fit-content] px-20 py-10  rounded-3xl mx-auto">
+                    <div id="timer-ring-area" class="relative">
+                        <svg class="circle-timer w-full h-auto max-w-xs mx-auto" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" class="circle-background"/>
+                            <circle cx="50" cy="50" r="45" class="circle-progress"/>
+                            <!-- <image href="./caty.gif" x="30" y="25" height="50" alt=""> -->
+                        </svg>
+                    </div>
+                <div class="absolute top-18 left-0 right-0">
+                    <model-viewer class="w-[90%] mx-auto" src="./src/assets/models3d/oscar_trophy.glb" auto-rotate ></model-viewer>
+                    <div id="timer-value" class="text-xl font-bold px-10 py-1 text-white border mx-auto w-[fit-content] rounded-lg">00:00</div>
+
+                    <form id="duration-settings-form" class=" w-full max-w-xs mx-auto">
+                        <div class="setting-line flex work-duration-input-parent justify-center gap-2 pt-2">
+                            <!-- <label for="work-duration-input" class="text-lg font-bold">Pomodoro:</label> -->
+                            <!-- <input type="number" id="work-duration-input" value="1" min="1" class="w-20 px-2 py-1 border border-gray-300 rounded text-center text-lg"> -->
+                            <!-- <button type="number" value="5" class="work-duration-input w-20 px-2 py-1 border border-gray-300 rounded text-center text-lg">5</button> -->
+                            <button type="number" class="timer-template rounded-full cursor-pointer font-semibold work-duration-input-one px-1.5 border border-gray-300 text-center text-lg text-white">25</button>
+                            <button type="number" class="timer-template rounded-full cursor-pointer font-semibold border border-gray-300 px-1.5  text-center text-white">50</button>
+                            <button type="number" class="timer-template rounded-full cursor-pointer font-semibold border border-gray-300 px-1.5  text-center text-lg text-white">75</button>
+                            <!-- <button type="number" class="w-20 px-2 py-1 border border-gray-300 rounded text-center text-lg text-white">75</button> -->
+                        </div>
+                        <div class="">
+                            <input type="number" id="rest-duration-input" value="5" min="1" class="hidden w-20 px-2 py-1 border border-gray-300 rounded text-center text-lg text-white">
+                        </div>
+                    </form>
+                </div>
+
+                <div id="timer-controls" class="w-[fit-content] mx-auto">
+                    <button id="pause-button" class="control-button cursor-pointer text-white rounded-full w-16 text-3xl flex justify-center items-center">
+                        Pause
+                    </button>
+                    <button id="start-button" class="control-button cursor-pointer text-white rounded-full w-16 text-3xl flex justify-center items-center">
+                        Start
+                    </button>
+                </div>
+              
+            <div class="">
+                <div id="todo_list" class="">
+                    <ol id="todo_list_item" class="w-[fit-content] mx-auto"></ol>
+                </div>
+                <div id="todo_form" style="display: none;">
+                    <form method="post" action="/" id="input_todo_form" class="w-[fit-content] mx-auto">
+                    <input type="text" name="todo_item" placeholder="Enter a mission to take on today" class="border" id="input_field" required min="2">
+                        <div class="flex gap-4 w-[fit-content] mx-auto">
+                            <input type="submit" value="Add Mission" class="cursor-pointer border" style="display: block;">
+                            <button type="reset" id="cancel_todo" class="border">Cancel</div>
+                        </div>
+                    </form>
+                </div>
+                <div id="add_todo_btn">
+                    <div class="cursor-pointer text-center">
+                        <i class="fa-solid fa-plus text-white"></i>
+                        <span class="text-white">Add a Mission</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>    
+
+        <div>
+            <div class="w-[fit-content] mx-auto flex flex-col backdrop-filter backdrop-blur-lg items-center justify-between gap-2 py-4 px-3 mt-3 rounded-xl md:absolute top-0 bottom-0 right-0">
+                <div>
+                    <h5 class="text-white underline">Todo List</h5>
+                    <!-- <div class="sound-button cursor-pointer bg-white font-semibold text-white rounded-lg px-5 py-1 text-lg text-center">2 Days</div> -->
+                    <div id="todo_list" class="border border-white">
+                        <!-- <ol id="todo_list_item" class="w-[fit-content] mx-auto"></ol> -->
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 justify-items-end">
+                    <div class="relative">
+                        <button id="lofi-btn" class="sound-button cursor-pointer bg-white px-5 font-semibold text-white rounded-lg py-1 text-lg">B</button>
+                        <div class="lofi-playing-sound border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
+                        <div class="lofi-sound-paused border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
+                        <div><input type="range"  id="lofi-volume-control" value="1" step="0.01" min="0" max="1" class="w-13"></div>
+                    </div>  
+                    <audio loop id="lofi-audio" class="audio" loop src="./src/assets/audio/don't-overthink-it~just-do-it.opus"></audio>  
+
+                    <div class="relative">
+                        <button id="asmr-btn" class="sound-button cursor-pointer bg-white px-5 font-semibold text-white rounded-lg py-1 text-lg">A</button>
+                        <div class="asmr-playing-sound border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
+                        <div class="asmr-sound-paused border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
+                        <div><input type="range"  id="asmr-volume-control" value="1" step="0.01" min="0" max="1" class="w-13"></div>
+                    </div>
+                    <audio loop id="asmr-audio" class="audio" loop src="./src/assets/audio/asmr-fabrics-scratching.opus"></audio>  
+                    <div class="relative">
+                        <button id="rain-btn" class="sound-button cursor-pointer bg-white px-5 font-semibold text-white rounded-lg py-1 text-lg">R</button>
+                        <div class="rain-playing-sound border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
+                        <div class="rain-sound-paused border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
+                        <div><input type="range"  id="rain-volume-control" value="1" step="0.01" min="0" max="1" class="w-13"></div>
+                    </div>  
+                    <audio loop id="rain-audio" class="audio" loop src="./src/assets/audio/rain-sound.opus"></audio>  
+                    <div class="relative">
+                        <button id="classical-music-btn" class="sound-button cursor-pointer bg-white px-5 font-semibold text-white rounded-lg py-1 text-lg">C</button>
+                        <div class="classicalM-playing-sound border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
+                        <div class="classicalM-sound-paused border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
+                        <div><input type="range"  id="classicalm-volume-control" value="1" step="0.01" min="0" max="1" class="w-13"></div>
+                    </div>  
+                    <audio loop id="classical-audio" class="audio" volume="0.0" loop src="./src/assets/audio/mozart.opus"></audio>  
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
