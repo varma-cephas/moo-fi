@@ -1,4 +1,4 @@
-# foo-fi
+# moo-fi
 foo-fi
 
 #### Generate the output file if not exists or rebuild it if it does
