@@ -21,6 +21,7 @@ const __dirname = dirname(__filename);
 //middlewares
 //express static server
 app.use(express.static(path.join(__dirname, "../")));
+app.use(express.static(path.join(__dirname, "./")));
 
 //gets the form element
 app.use(express.urlencoded({extended:true}))

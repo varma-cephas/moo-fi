@@ -50,7 +50,7 @@ const classicalm_volume_control = document.getElementById("classicalm-volume-con
 //vol-ctrl btns
 
 const quote_text = document.getElementById("quote-text");
-const quotes_endpoint = "https://quotes-api-self.vercel.app/quote";
+const quotes_endpoint = "http://localhost:3000/quotes-bite-sized.json";
 
 
 const bodyElement = document.body; // Reference to the body element for adding/removing classes
@@ -295,7 +295,7 @@ const fetchData= async(url)=>{
     try{
         const req = await fetch(url);
         const res = await req.json();
-        return res
+        return res;
     }catch(err){
         console.error("Err",err);
         throw new Error("Error", err)
@@ -304,6 +304,7 @@ const fetchData= async(url)=>{
 
 fetchData(quotes_endpoint)
     .then(data=>{
-        quote_text.textContent=data.quote
+        const randomArrIndex=Math.floor(Math.random()*data.length);
+        quote_text.textContent = data[randomArrIndex].quote
     })
     .catch(err=>console.log(err))
