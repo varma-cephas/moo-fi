@@ -62,7 +62,7 @@
                         </svg>
                     </div>
                 <div class="md:absolute top-18 left-0 right-0">
-                    <model-viewer class="w-[90%] mx-auto hidden md:block" src="./src/assets/models3d/cat.glb" auto-rotate ></model-viewer>
+                    <model-viewer class="w-[90%] mx-auto hidden md:block" src="./src/assets/models3d/ceramic_kitten.glb" auto-rotate ></model-viewer>
                     <div id="timer-value" class="text-xl font-bold px-10 py-1 text-white border mx-auto w-[fit-content] rounded-lg">00:00</div>
 
                     <form id="duration-settings-form" class=" w-full max-w-xs mx-auto">
@@ -111,18 +111,10 @@
                 </div>
             </div>
             </div>
-        </div>    
-
+        </div>  
+        
         <div>
-            <div class="w-[fit-content] mx-auto flex flex-col backdrop-filter backdrop-blur-lg items-center justify-between gap-2 py-4 px-3 mt-3 rounded-xl absolute md:top-0 bottom-0 right-0 max-md:left-0">
-                <div class="hidden md:block">
-                    <h5 class="text-white underline">Todo List</h5>
-                    <!-- <div class="sound-button cursor-pointer bg-white font-semibold text-white rounded-lg px-5 py-1 text-lg text-center">2 Days</div> -->
-                    <div id="todo_list" class="border border-white">
-                        <!-- <ol id="todo_list_item" class="w-[fit-content] mx-auto"></ol> -->
-                    </div>
-                </div>
-                <div class="flex md:flex-col gap-3 justify-items-end">
+            <div class="absolute bottom-4  md:flex-col gap-3 justify-items-end backdrop-filter backdrop-blur-lg p-4 rounded-xl">
                     <div class="relative">
                         <button id="lofi-btn" class="sound-button cursor-pointer bg-white px-5 font-semibold text-white rounded-lg py-1 text-lg">B</button>
                         <div class="lofi-playing-sound border p-1 w-[20%] absolute top-0 right-0 rounded-xl hidden"></div>
@@ -153,10 +145,22 @@
                     </div>  
                     <audio loop id="classical-audio" class="audio" volume="0.0" loop src="./src/assets/audio/mozart.opus"></audio>  
                 </div>
+        </div>
+
+        <div>
+            <div class="w-[fit-content] mx-auto flex flex-col backdrop-filter backdrop-blur-lg items-center justify-between gap-2 py-4 px-3 mt-3 rounded-xl absolute md:top-0 bottom-0 right-0 max-md:left-0">
+                <div class="hidden md:block">
+                    <h5 class="text-white underline">Todo List</h5>
+                    <!-- <div class="sound-button cursor-pointer bg-white font-semibold text-white rounded-lg px-5 py-1 text-lg text-center">2 Days</div> -->
+                    <div id="todo_list" class="border border-white">
+                        <!-- <ol id="todo_list_item" class="w-[fit-content] mx-auto"></ol> -->
+                    </div>
+                </div>
+            
             </div>
-            <div class="hidden md:block">
-                <div class="absolute bottom-2 left-2"><button class="next-ambience p-2 cursor-pointer rounded-xl text-xl text-white font-bold">>></button></div>
-            </div>
+            <!-- <div class="hidden md:block">
+                <div class="absolute left-2"><button class="next-ambience p-2 cursor-pointer rounded-xl text-xl text-white font-bold">>></button></div>
+            </div> -->
             <div class="hidden md:block">
                 <div class="absolute bottom-1 right-28">
                     <p id="quote-text" class="backdrop-filter backdrop-blur-lg p-3 italic cursor-pointer rounded-xl text-xl text-white font-semibold">It is great to keep an open mind!</p>
